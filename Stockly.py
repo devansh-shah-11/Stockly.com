@@ -375,15 +375,7 @@ class NewUser(User):
         str = self.uname + "\n" + self.fullname + "\n" + \
             self.pswd + "\n" + self.mobileNum + "\n"
         return str
-
-# if st.session_state['C_User']=="":
-#     pass
-# else:
-#     st.session_state['C_User']    
-#     C_User = User("dp2307")
-
-
-#uname = "bhargav"
+      
 st.set_page_config(layout="wide")
 
 with open("E:\\College\\Documents\\PSC\\Innovative\\styles.css") as f:
@@ -411,11 +403,7 @@ if(st.session_state['key'] != True):
                 st.success("Login Successful")
                 st.session_state['C_User'] = Email_id
 
-                #global C_User 
-                #C_User = User(Email_id)
-                #uname= Email_id
-                st.session_state['key'] = True
-            # os.system('streamlit run E:\College\Documents\PSC\Innovative\main_wosector.py ')        
+                st.session_state['key'] = True   
     else:
             n_V=em_V=mo_V=Pass_V=CPass_V=False
 
@@ -471,7 +459,6 @@ else:
 
     c1, c2, c3 = st.columns(3)
 
-    #col1, col2, col3 = st.columns([1, 4, 1])
     choice = option_menu("",["Analysis", "Search", "Watchlist", "My PortFolio"],orientation=HORIZONTAL)
     if choice == "Analysis":
         
@@ -482,9 +469,6 @@ else:
             start_date=st.date_input("Select the start date: ")
         with c12:    
             end_date=st.date_input("Select the last date: ")
-        # data = yf.download(tickers=x, period ='5d', interval = '15m', rounding= True)
-        #data=yf.Ticker(x)
-        #print("-"+x+"-"+avlbl1)
         if(len(x)!= 0 ):
             days = (end_date - start_date).days
             fig, ax = plt.subplots()
@@ -518,10 +502,6 @@ else:
                 ax.legend()
                 st.pyplot(fig)
                     
-                    
-                    
-            #st.write((end_date - start_date).days)
-            #print(type(end_date - start_date))
     elif choice=="Search":
         stock = getAllStocks()
         Sname = st.selectbox("Search your Stock Here: ",[""]+stock)
